@@ -1,8 +1,7 @@
 #include <iostream>
 #include <string>
-#include <cstdlib>   // For rand()
-#include <ctime>     // For seeding random generator
-
+#include <cstdlib>   
+#include <ctime>     
 struct Plant {
     std::string name;
     float idealPHMin;
@@ -10,12 +9,10 @@ struct Plant {
     float idealWaterLevel;
 };
 
-// Simulate pH reading (range: 4.5 to 8.0)
 float simulatePH() {
     return 4.5f + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / (8.0f - 4.5f)));
 }
 
-// Simulate water level reading (range: 50% to 100%)
 float simulateWaterLevel() {
     return 50.0f + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / 50.0f));
 }
@@ -42,7 +39,7 @@ void checkPlantStatus(const Plant& plant, float currentPH, float currentWater) {
 }
 
 int main() {
-    srand(static_cast<unsigned int>(time(0))); // Seed the random generator
+    srand(static_cast<unsigned int>(time(0))); 
 
     Plant plants[5] = {
         {"Lettuce", 5.5, 6.5, 70.0},
